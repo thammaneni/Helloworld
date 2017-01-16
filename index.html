@@ -3,11 +3,12 @@
 <head>
 	<title>ngClassifieds</title>
 </head>
-<body ng-app="ngClassifieds" ng-controller="classifiedsCtrl">
+<body ng-app="ngClassifieds" ng-controller="classCtrl">
+<input type="text" placeholder="Enter your Name : " ng-model="name">
+<h1>{{ name }} </h1>
 
-
-
-<script type="text/javascript" src="node_modules/angular/angular.js"></script>
-<script type="text/javascript" src="scripts/app.js"></script>
+<script  src="node_modules/angular/angular.js"></script>
+<script  src="scripts/app.js"></script>
+<script  src="components/classifieds.ctr.js"></script>
 </body>
 </html>
