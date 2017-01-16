@@ -1,1 +1,1 @@
-angular.module("ngClasifieds",[]);
+angular.module("ngClassifieds",[]);
