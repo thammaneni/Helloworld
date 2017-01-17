@@ -2,12 +2,21 @@
 <html>
 <head>
 	<title>ngClassifieds</title>
+	<link rel="stylesheet" type="text/css" href="node_modules/angular-material/angular-material.css">
+	<link rel="stylesheet" type="text/css" href="node_modules/mdi/css/materialdesignicons.min.css" media="all">
+	<link rel="stylesheet" type="text/css" href="css/style.css">
 </head>
 <body ng-app="ngClassifieds" ng-controller="classCtrl">
-<input type="text" placeholder="Enter your Name : " ng-model="name">
-<h1>{{ name }} </h1>
+<md-toolbar>
+	<div class="md-toolbar-tools">
+		<p> <strong>ngClassifieds</strong> </p>
+		<md-button>
+			<md-icon class="mdi mdi-plus-circle"></md-icon>
+			New Classified
+		</md-button>
+	</div>
+</md-toolbar>
 
-<hello-World></hello-World>
 <script  src="node_modules/angular/angular.js"></script>
 <script src="node_modules/angular-animate/angular-animate.js"></script>
 <script src="node_modules/angular-aria/angular-aria.js"></script>
