@@ -21,14 +21,39 @@
  <md-content class="md-padding" layout="row" layout-wrap>
  <md-card ng-repeat="classified in classifieds" flex="30">
  <img ng-src="{{ classified.image }}" alt="">
+
  <md-card-content>
-   <div class="classified-info">
+   
+
+    <div class="classified-info" ng-show="!showContact">
    	<h2 class="md-tittle"> {{ classified.title | uppercase }} </h2>
    	<h2>{{ classified.posted | date:'longDate' }}</h2>
    	<h2>short format: {{ classified.posted | date }}</h2>
    	<h3>{{ classified.price | currency }} </h3>
    	<p>{{ classified.description | lowercase }}</p>
-   	<pre>{{ classified | json }}</pre>
+   	<md-button ng-click="jsonformat= true ">ShowJSON</md-button>
+   	<md-button ng-click="jsonformat= false ">HideJSON</md-button>
+   	<pre ng-show="jsonformat">{{ classified | json }}</pre>
+   </div>
+
+   <div class="classified-contact" ng-show="showContact && !showAdmin">
+   	<p><md-icon class="mdi mdi-account"></md-icon>{{ classified.contact.name}}</p>
+   	<p><md-icon class="mdi mdi-phone"></md-icon>{{ classified.contact.phone}}</p>
+   	<p><md-icon class="mdi mdi-email"></md-icon>{{ classified.contact.email}}</p>
+   </div>
+
+   <div layout="row">
+   <md-button ng-show="!showContact" ng-click="showContact= true;">Contact</md-button>
+   <md-button ng-show="showContact" ng-click="showContact= false">Details</md-button>
+   <md-button ng-show="!showAdmin" ng-click="showAdmin=true ">Admin</md-button>
+   <md-button ng-show="showAdmin" ng-click="showAdmin=false ">Close</md-button>
+   </div>
+
+   
+
+   <div class="classified-Admin" ng-show="showAdmin" layout="row">
+   	<p><md-button ng-click="" class="ng-primary">Edit</md-button></p>
+   	<p><md-button ng-click="" class="ng-warn">Delete</md-button></p>
    </div>
    </md-card-content>
    </md-card>
