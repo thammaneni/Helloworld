@@ -24,22 +24,36 @@
 
      $scope.saveClassified= function(classified){
      	if(classified){
-        
         classified.contact=contact;
      	$scope.classifieds.push(classified);
      	$scope.closeSidebar();
      	$scope.classified={};
+     	showToast("Save classified");
+        }
+     }
+
+     $scope.editClassified = function(classified){
+     	$scope.editing = true;
+     	$scope.openSidebar();
+     	$scope.classified=classified;
+     	showToast("Edit classified");
+     }
+
+     $scope.saveEdit =function() {
+     	$scope.editing = false;
+     	$scope.classified={};
+     	$scope.closeSidebar();
+     }
+
+     function showToast(message){
+     	// body...
      	$mdToast.show(
      		$mdToast.simple()
-     			.content("classified is saved..")
+     			.content(message)
      			.position('top, right')
-     			.hideDelay(3000)
+     			.hideDelay(5000)
      			);
-        }
-     	
      }
-  
-
   });
 
 })();
