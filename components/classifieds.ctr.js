@@ -9,15 +9,29 @@
 	  		// body...
 	  		$scope.classifieds=classifieds.data;
 	  	});
-
+    	
+    	var contact = {
+    		name : "Srinivas",
+    		phone : "+91 8985466598",
+    		email : "thammanenitcs@gmail.com"
+    	}
 	  	$scope.openSidebar = function(){
 	  		$mdSidenav('left').open();
-	  	};
+	  	}
 	  	$scope.closeSidebar = function(){
 	  		$mdSidenav('left').close();
 	  	}
 
-
+     $scope.saveClassified= function(classified){
+     	if(classified){
+        
+        classified.contact=contact;
+     	$scope.classifieds.push(classified);
+     	$scope.closeSidebar();
+     	$scope.classified={};
+        }
+     	
+     }
   
 
   });
