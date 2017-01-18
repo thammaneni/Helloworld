@@ -3,9 +3,9 @@
 
 	angular
 	  .module("ngClassifieds")
-	  .controller("classCtrl", function($scope, $http) {
+	  .controller("classCtrl", function($scope, $http,classifiedFactory) {
 
-	  	$http.get('data/classified.json').then(function(classifieds) {
+	  	classifiedFactory.getClassifieds().then(function(classifieds) {
 	  		// body...
 	  		$scope.classifieds=classifieds.data;
 	  	})
