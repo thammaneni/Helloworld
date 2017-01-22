@@ -8,6 +8,7 @@
 	  	classifiedFactory.getClassifieds().then(function(classifieds) {
 	  		// body...
 	  		$scope.classifieds=classifieds.data;
+	  		$scope.categories =getCategories($scope.classifieds);
 	  	});
     	
     	var contact = {
@@ -15,6 +16,8 @@
     		phone : "+91 8985466598",
     		email : "thammanenitcs@gmail.com"
     	}
+
+    		
 	  	$scope.openSidebar = function(){
 	  		$mdSidenav('left').open();
 	  	}
@@ -71,6 +74,17 @@
      			.hideDelay(5000)
      			);
      }
+
+    function getCategories(classifieds){
+     	var categories=[];
+     	angular.forEach(classifieds, function(item){
+     		angular.forEach(item.categories, function(category){
+     			categories.push(category);
+     		});
+     	});
+
+     	return _.uniq(categories);
+     } 
   });
 
 })();
